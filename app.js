@@ -7,6 +7,10 @@ const app = express();
 app.use(morgan('common'));
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.send('Hello Express!');
+});
+
 app.get('/frequency', (req, res) => {
   const { s } = req.query;
   
@@ -45,3 +49,5 @@ app.get('/frequency', (req, res) => {
   counts.highest = highest;
   res.json(counts);
 });
+
+module.exports = app;
